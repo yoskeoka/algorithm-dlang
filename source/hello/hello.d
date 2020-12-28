@@ -1,4 +1,9 @@
-void main()
+module source.hello.hello;
+
+/** 
+ * hello world
+ */
+void hello()
 {
 	import std.stdio : writeln;
 

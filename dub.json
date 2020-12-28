@@ -1,0 +1,23 @@
+{
+	"authors": [
+		"yoske"
+	],
+	"copyright": "Copyright © 2020, yoske",
+	"dependencies": {
+		"silly": "~>1.0.2"
+	},
+	"description": "algorithm implementation",
+	"license": "MIT",
+	"name": "algorithm",
+	"configurations": [
+		{
+		  "name": "executable"
+		},
+		{
+		  "name": "unittest",
+		  "dependencies": {
+			"silly": "~>1.0.2"
+		  }
+		}
+	]
+}

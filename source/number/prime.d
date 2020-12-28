@@ -1,4 +1,4 @@
-module number.prime;
+module source.number.prime;
 import std.stdio : writeln;
 
 /**
@@ -10,7 +10,7 @@ public bool is_prime(int n)
     {
         return false;
     }
-    for (int i = 2; i * i <= n; i += 2)
+    for (int i = 2; i * i <= n; i++)
     {
         if (n % i == 0)
         {
@@ -21,13 +21,11 @@ public bool is_prime(int n)
     return true;
 }
 
-void main()
+unittest
 {
-    foreach (i; 1 .. 201)
-    {
-        if (is_prime(i))
-        {
-            writeln(i);
-        }
-    }
+    assert(is_prime(1) == false);
+    assert(is_prime(2) == true);
+    assert(is_prime(5) == true);
+    assert(is_prime(11) == true);
+    assert(is_prime(1025) == false);
 }
