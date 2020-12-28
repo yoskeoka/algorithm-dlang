@@ -21,6 +21,7 @@ public bool is_prime(int n)
     return true;
 }
 
+@("is_prime basic")
 unittest
 {
     assert(is_prime(1) == false);

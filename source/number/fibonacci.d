@@ -17,6 +17,7 @@ int fibonacci_r(int n)
     return fibonacci_r(n - 1) + fibonacci_r(n - 2);
 }
 
+@("fibonacci_r")
 unittest
 {
     assert(fibonacci_r(1) == 1);
