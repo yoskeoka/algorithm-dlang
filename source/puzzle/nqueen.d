@@ -6,8 +6,7 @@ import std.algorithm.searching : canFind;
 /** 
  * y positions for n-queen puzzle.
  */
-struct NQueenBoard
-{
+struct NQueenBoard {
     /// 
     int size = 8;
     ///
@@ -16,13 +15,11 @@ struct NQueenBoard
     int[] pos;
 
     ///
-    this(int size)
-    {
+    this(int size) {
         this.size = size;
         this.pos = new int[size];
 
-        foreach (ref int i; this.pos)
-        {
+        foreach (ref int i; this.pos) {
             i = -1;
         }
 
@@ -30,23 +27,18 @@ struct NQueenBoard
     }
 
     ///
-    bool canPut(int y)
-    {
-        if (this.count >= this.size)
-        {
+    bool canPut(int y) {
+        if (this.count >= this.size) {
             return false;
         }
 
-        if (this.pos.canFind(y))
-        {
+        if (this.pos.canFind(y)) {
             return false;
         }
 
-        for (int i = 0; i < this.count; i++)
-        {
+        for (int i = 0; i < this.count; i++) {
             const auto d = this.count - i;
-            if (this.pos[i] - d == y || this.pos[i] + d == y)
-            {
+            if (this.pos[i] - d == y || this.pos[i] + d == y) {
                 return false;
             }
         }
@@ -54,8 +46,7 @@ struct NQueenBoard
     }
 
     @("canPut")
-    unittest
-    {
+    unittest {
         auto b = new NQueenBoard(8);
 
         b.push(0);
@@ -76,15 +67,13 @@ struct NQueenBoard
     }
 
     ///
-    void push(int y)
-    {
+    void push(int y) {
         this.pos[this.count] = y;
         this.count++;
     }
 
     /// pop removes the last pos and returns it.
-    int pop()
-    {
+    int pop() {
         this.count--;
         auto r = this.pos[this.count];
         this.pos[this.count] = -1;
@@ -92,8 +81,7 @@ struct NQueenBoard
     }
 
     @("push/pop")
-    unittest
-    {
+    unittest {
         auto b = new NQueenBoard(8);
         assert(b.pos == [-1, -1, -1, -1, -1, -1, -1, -1]);
         assert(b.count == 0);
@@ -120,8 +108,7 @@ struct NQueenBoard
 }
 
 ///
-class NQueenSolver
-{
+class NQueenSolver {
     /// solved count
     int resultCount = 0;
     ///
@@ -131,34 +118,26 @@ class NQueenSolver
     const int N;
 
     ///
-    this(int size)
-    {
+    this(int size) {
         this.N = size;
         this.results = [];
     }
 
     /// solve 8-queen and print results.
-    void solve()
-    {
+    void solve() {
         auto b = new NQueenBoard(this.N);
         searchR(b);
     }
 
-    private void searchR(NQueenBoard* b)
-    {
-        for (int i = 0; i < b.size; i++)
-        {
-            if (b.canPut(i))
-            {
+    private void searchR(NQueenBoard* b) {
+        for (int i = 0; i < b.size; i++) {
+            if (b.canPut(i)) {
                 b.push(i);
 
-                if (b.count >= b.size)
-                {
+                if (b.count >= b.size) {
                     this.resultCount++;
                     this.results ~= b.pos.dup;
-                }
-                else
-                {
+                } else {
                     searchR(b);
                 }
 
@@ -169,8 +148,7 @@ class NQueenSolver
 }
 
 @("1-queen solver")
-unittest
-{
+unittest {
     auto s1 = new NQueenSolver(1);
     s1.solve();
     assert(s1.resultCount == 1);
@@ -178,8 +156,7 @@ unittest
 }
 
 @("4-queen solver")
-unittest
-{
+unittest {
     auto s4 = new NQueenSolver(4);
     s4.solve();
     assert(s4.resultCount == 2);

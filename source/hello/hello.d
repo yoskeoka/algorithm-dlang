@@ -3,8 +3,7 @@ module source.hello.hello;
 /** 
  * hello world
  */
-void hello()
-{
+void hello() {
 	import std.stdio : writeln;
 
 	writeln("Hello, World!");

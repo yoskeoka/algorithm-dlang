@@ -3,14 +3,11 @@ module source.number.fibonacci;
 /**
     returns Nth fibonacci number. (recursive way)
 */
-int fibonacci_r(int n)
-{
-    if (n == 1)
-    {
+int fibonacci_r(int n) {
+    if (n == 1) {
         return 1;
     }
-    if (n == 2)
-    {
+    if (n == 2) {
         return 1;
     }
 
@@ -18,8 +15,7 @@ int fibonacci_r(int n)
 }
 
 @("fibonacci_r")
-unittest
-{
+unittest {
     assert(fibonacci_r(1) == 1);
     assert(fibonacci_r(2) == 1);
     assert(fibonacci_r(3) == 2);
