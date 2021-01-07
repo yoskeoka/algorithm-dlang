@@ -18,3 +18,9 @@ public string[] solveHanoi(int n) {
     hanoi(&moves, n, "a", "c", "b");
     return moves;
 }
+
+@("hanoi")
+unittest {
+
+    assert(solveHanoi(2) == ["a -> b", "a -> c", "b -> c"]);
+}
