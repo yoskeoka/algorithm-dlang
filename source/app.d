@@ -1,5 +1,6 @@
 import std.stdio;
 import puzzle.nqueen : NQueenSolver;
+import puzzle.hanoi;
 
 version (unittest) {
 	// do nothing
@@ -11,5 +12,8 @@ version (unittest) {
 
 		writeln(solver8.results);
 		writeln("results: ", solver8.resultCount);
+
+		auto hanoiMoves = solveHanoi(5);
+		writeln(hanoiMoves);
 	}
 }
