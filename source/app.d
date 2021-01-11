@@ -1,6 +1,7 @@
 import std.stdio;
 import puzzle.nqueen : NQueenSolver;
 import puzzle.hanoi;
+import file.find;
 
 version (unittest) {
 	// do nothing
@@ -15,5 +16,10 @@ version (unittest) {
 
 		auto hanoiMoves = solveHanoi(5);
 		writeln(hanoiMoves);
+
+		auto files = findFiles(".", "dub");
+		foreach (f; files) {
+			writeln(f);
+		}
 	}
 }
